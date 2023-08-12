@@ -31,14 +31,14 @@ const Home: NextPage = () => {
         <>
           <div className="cards-container">
             <div className="card create-dao-card">
-              <div className="card-title">Create DAO</div>
-              <div className="card-body">
+              <div className="card-title mb-8 font-bold">Create DAO</div>
+              <div className="card-body mb-8 text-justify">
                 Effortlessly mint tokens, configure governance parameters, and deploy your DAO on the blockchain within minutes</div>
               <Button loading={false} onClick={handleCreateDAOClick}>Create DAO</Button>
             </div>
               <div className="card view-dao-card">
-                <div className="card-title">View DAO</div>
-                <div className="card-body">
+                <div className="card-title mb-8 font-bold text-justify">View DAO</div>
+                <div className="card-body mb-8">
                   Explore DAO activities, analyze governance decisions, and monitor blockchain-based operations effortlessly</div>
                 <Button loading={false} onClick={handleViewDAOClick}>View DAO</Button>
             </div>
