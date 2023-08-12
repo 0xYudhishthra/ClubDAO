@@ -149,48 +149,39 @@ body::after {
 }
 
 /* create dao button */
-.card{
-  display: grid;
+.cards-container {
+  display: flex;
 }
-.create-dao-card {
-  position: static;
-  margin-top: 250px;
-  margin-right: 600px;
+
+.card {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  align-items: flex-start;
   width: 400px;
-  min-height: 300px;
   overflow: auto;
-  background-image: linear-gradient(to top, #faf7fc, #dbbafd, #a554e8);
+  background-color: rgba(255, 255, 255, 0.512);
   border-radius: 15px;
   padding: 20px;
+  box-sizing: border-box; /* Include padding in width calculation */
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.create-dao-card {
+  margin-right: 20px; /* Adjust spacing between cards */
 }
 
 .view-dao-card {
-  position: static;
-  margin-top: 250px;
-  margin-left: 600px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: flex-start;
-  width: 400px;
-  min-height: 300px;
-  overflow: auto;
-  background-image: linear-gradient(to top, #faf7fc, #dbbafd, #a554e8);
-  border-radius: 15px;
-  padding: 20px;
+  margin-left: 20px; /* Adjust spacing between cards */
 }
 
-.card-title{
+.card-title {
   font-size: 40px;
   color: #000000;
 }
 
-.card-body{
+.card-body {
   font-size: 20px;
   color: #000000;
-  text-align:"left"
+  text-align: left; /* Removed unnecessary quotes around "left" */
 }
+

@@ -2,6 +2,7 @@ import { useState } from "react";
 import type { NextPage } from "next";
 import { useAccount, useBalance } from "wagmi";
 import { Button, Layout, Loader, WalletOptionsModal } from "../components";
+import { useRouter } from "next/router";
 
 const Home: NextPage = () => {
   const [showWalletOptions, setShowWalletOptions] = useState(false);
@@ -13,26 +14,36 @@ const Home: NextPage = () => {
 
   const loading = (accountLoading || balanceLoading) && !balanceData;
 
+  const router = useRouter();
+
+  const handleCreateDAOClick = () => {
+    router.push("./createdao"); // Replace with the actual URL of the create-dao page
+  };
+
+  const handleViewDAOClick = () => {
+    router.push("./viewdao"); // Replace with the actual URL of the view-dao page
+  }
+
   const renderContent = () => {
     if (accountData) {
       // If wallet is connected
       return (
         <>
-        <div className="cards-container">
-          <div className="card create-dao-card">
-            <div className="card-title">Create DAO</div>
-            <div className="card-body">
-              Effortlessly mint tokens, configure governance parameters, and deploy your DAO on the blockchain within minutes
+          <div className="cards-container">
+            <div className="card create-dao-card">
+              <div className="card-title">Create DAO</div>
+              <div className="card-body">
+                Effortlessly mint tokens, configure governance parameters, and deploy your DAO on the blockchain within minutes</div>
+              <Button loading={false} onClick={handleCreateDAOClick}>Create DAO</Button>
             </div>
-          </div>
-          <div className="card view-dao-card">
-            <div className="card-title">View DAO</div>
-            <div className="card-body">
-              Explore DAO activities, analyze governance decisions, and monitor blockchain-based operations effortlessly
+              <div className="card view-dao-card">
+                <div className="card-title">View DAO</div>
+                <div className="card-body">
+                  Explore DAO activities, analyze governance decisions, and monitor blockchain-based operations effortlessly</div>
+                <Button loading={false} onClick={handleViewDAOClick}>View DAO</Button>
             </div>
-          </div>
-        </div>
-      </>
+            </div>
+        </>
       );
     } else {
       // If wallet is not connected
@@ -48,7 +59,6 @@ const Home: NextPage = () => {
       );
     }
   };
-  
 
   return (
     <>
@@ -67,12 +77,6 @@ const Home: NextPage = () => {
       </Layout>
     </>
   );
-
-  const createdao = () => {
-
-  }
 };
-
-  
 
 export default Home;
