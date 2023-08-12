@@ -10,6 +10,7 @@ const Home: NextPage = () => {
     addressOrName: accountData?.address,
     watch: true,
   });
+
   const loading = (accountLoading || balanceLoading) && !balanceData;
 
   const renderContent = () => {
