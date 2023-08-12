@@ -14,34 +14,41 @@ const Home: NextPage = () => {
   const loading = (accountLoading || balanceLoading) && !balanceData;
 
   const renderContent = () => {
-    if (loading) return <Loader size={8} />;
-    if (balanceData) {
+    if (accountData) {
+      // If wallet is connected
       return (
         <>
-          <h1 className="mb-8 text-4xl font-bold">My Wallet</h1>
-          <div className="inline-flex place-items-center">
-            <h6 className="ml-2 text-2xl">{`Ξ ${Number(
-              balanceData?.formatted
-            ).toFixed(4)} ${balanceData?.symbol}`}</h6>
+        <div className="cards-container">
+          <div className="card create-dao-card">
+            <div className="card-title">Create DAO</div>
+            <div className="card-body">
+              Effortlessly mint tokens, configure governance parameters, and deploy your DAO on the blockchain within minutes
+            </div>
           </div>
+          <div className="card view-dao-card">
+            <div className="card-title">View DAO</div>
+            <div className="card-body">
+              Explore DAO activities, analyze governance decisions, and monitor blockchain-based operations effortlessly
+            </div>
+          </div>
+        </div>
+      </>
+      );
+    } else {
+      // If wallet is not connected
+      return (
+        <>
+          <main className="main">
+            <div className="mainDiv">
+              <h1 className="bigTitle">ClubDAO</h1>
+              <div className="research">connect wallet to discover</div>
+            </div>
+          </main>
         </>
       );
     }
-
-    return (
-      <>
-        <h1 className="mb-8 text-4xl font-bold">
-          Welcome to the NextJS wagmi template!``
-        </h1>
-        <Button
-          loading={accountLoading}
-          onClick={() => setShowWalletOptions(true)}
-        >
-          Connect to Wallet
-        </Button>
-      </>
-    );
   };
+  
 
   return (
     <>
@@ -49,7 +56,7 @@ const Home: NextPage = () => {
         open={showWalletOptions}
         setOpen={setShowWalletOptions}
       />
-
+      {/* Header */}
       <Layout
         showWalletOptions={showWalletOptions}
         setShowWalletOptions={setShowWalletOptions}
@@ -60,6 +67,12 @@ const Home: NextPage = () => {
       </Layout>
     </>
   );
+
+  const createdao = () => {
+
+  }
 };
+
+  
 
 export default Home;

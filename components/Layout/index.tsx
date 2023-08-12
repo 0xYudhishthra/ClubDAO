@@ -75,7 +75,7 @@ export default function Layout(props: Props) {
   return (
     <div>
       <Head>
-        <title>NextJS wagmi</title>
+        <title>Club DAO</title>
         <meta name="description" content="NextJS and wagmi template" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
@@ -85,11 +85,11 @@ export default function Layout(props: Props) {
         setOpen={setShowWalletOptions}
       />
 
-      <div className="absolute w-screen bg-gradient-to-r from-black to-white">
+      <div className="absolute w-screen bg-white bg-opacity-0">
         <div className="flex items-center justify-between p-4">
           <div className="flex items-center">
             <h4 className="text-2xl font-bold text-white cursor-default">
-              NextJS wagmi
+              <Image src="/images/clubDAO_logo.png" alt="logo" width='250' height='30' />
             </h4>
           </div>
           {renderButton()}
