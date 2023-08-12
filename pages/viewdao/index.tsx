@@ -18,20 +18,23 @@ const Home: NextPage = () => {
   const renderContent = () => {
     if (loading) return <Loader size={8} />;
 
-      return (
+    return (
         <>
-          <h1 className="mb-8 text-4xl font-bold">View Current DAOs</h1>
+          <h1 className="mb-8 text-4xl font-bold">Here are all your DAOs</h1>
           <div className="inline-flex place-items-center">
-            <div className="min-h-screen flex justify-center items-center font-bold text-gray-700 bg-cover bg-center bg-no-repeat">
-                <FrostedGlassBox>
-                <p>Fuck Glass /<br />Fuck Glass /<br />Acrylic Effect w/ CSS</p>
-                </FrostedGlassBox>
-            </div>
+            {/* Create hooks from smart contract */}
+            <FrostedGlassBox className="mx-10">
+                <h1 className="mb-8 text-3xl font-bold">DAO NAME</h1>
+                <h2>DAO Description</h2>
+            </FrostedGlassBox>
+                <div className="flex justify-center items-center h-full">
+                    <Button loading={false}>Create New DAO</Button>
+                </div>
           </div>
+          <h2>This is a test</h2>
         </>
       );
-
-  };
+    };
 
   return (
     <>
