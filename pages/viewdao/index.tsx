@@ -1,7 +1,9 @@
+import React from "react";
 import { useState } from "react";
 import type { NextPage } from "next";
 import { useAccount, useBalance } from "wagmi";
-import { Button, Layout, Loader, WalletOptionsModal } from "../../components";
+import { Button, Layout, Loader, WalletOptionsModal} from "../../components";
+import FrostedGlassBox from "../../components/FrostedCard";
 
 const Home: NextPage = () => {
   const [showWalletOptions, setShowWalletOptions] = useState(false);
@@ -18,11 +20,13 @@ const Home: NextPage = () => {
 
       return (
         <>
-          <h1 className="mb-8 text-4xl font-bold">Fuck My Wallet</h1>
+          <h1 className="mb-8 text-4xl font-bold">View Current DAOs</h1>
           <div className="inline-flex place-items-center">
-            <h6 className="ml-2 text-2xl">{`Ξ ${Number(
-              balanceData?.formatted
-            ).toFixed(4)} ${balanceData?.symbol}`}</h6>
+            <div className="min-h-screen flex justify-center items-center font-bold text-gray-700 bg-cover bg-center bg-no-repeat">
+                <FrostedGlassBox>
+                <p>Fuck Glass /<br />Fuck Glass /<br />Acrylic Effect w/ CSS</p>
+                </FrostedGlassBox>
+            </div>
           </div>
         </>
       );
