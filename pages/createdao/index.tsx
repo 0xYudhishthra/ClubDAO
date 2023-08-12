@@ -23,3 +23,5 @@ const CreateDAO = () => {
         </>
     );
 };
+
+export default CreateDAO;
