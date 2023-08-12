@@ -1,7 +1,9 @@
+import React from "react";
 import { useState } from "react";
 import type { NextPage } from "next";
 import { useAccount, useBalance } from "wagmi";
-import { Button, Layout, Loader, WalletOptionsModal } from "../../components";
+import { Button, Layout, Loader, WalletOptionsModal} from "../../components";
+import FrostedGlassBox from "../../components/FrostedCard";
 
 const Home: NextPage = () => {
   const [showWalletOptions, setShowWalletOptions] = useState(false);
@@ -16,18 +18,34 @@ const Home: NextPage = () => {
   const renderContent = () => {
     if (loading) return <Loader size={8} />;
 
-      return (
+    return (
         <>
-          <h1 className="mb-8 text-4xl font-bold">Fuck My Wallet</h1>
+          <h1 className="mb-6 mt-8 text-4xl font-bold">Here are all your DAOs</h1>
+          <div className="inline-flex place-items-center mb-10">
+            {/* Create hooks from smart contract */}
+            <FrostedGlassBox className="mx-10">
+                <h1 className="mb-8 text-3xl font-bold">DAO NAME</h1>
+                <h2>DAO Description</h2>
+            </FrostedGlassBox>
+                <div className="flex justify-center items-center h-full">
+                    <Button loading={false}>Create New DAO</Button>
+                </div>
+          </div>
+
+          <h1 className="mb-6 mt-8 text-3xl font-bold">Here are all your subDAOs</h1>
           <div className="inline-flex place-items-center">
-            <h6 className="ml-2 text-2xl">{`Ξ ${Number(
-              balanceData?.formatted
-            ).toFixed(4)} ${balanceData?.symbol}`}</h6>
+            {/* Create hooks from smart contract */}
+            <FrostedGlassBox className="mx-10">
+                <h1 className="mb-8 text-3xl font-bold">DAO NAME</h1>
+                <h2>DAO Description</h2>
+            </FrostedGlassBox>
+                <div className="flex justify-center items-center h-full">
+                    <Button loading={false}>Create New subDAO</Button>
+                </div>
           </div>
         </>
       );
-
-  };
+    };
 
   return (
     <>
