@@ -21,7 +21,7 @@ const Home: NextPage = () => {
     return (
         <>
           <h1 className="mb-6 mt-8 text-4xl font-bold">Here are all your DAOs</h1>
-          <div className="inline-flex place-items-center mb-10">
+          <div className="inline-flex place-items-center">
             {/* Create hooks from smart contract */}
             <FrostedGlassBox className="mx-10">
                 <h1 className="mb-8 text-3xl font-bold">DAO NAME</h1>
@@ -40,7 +40,7 @@ const Home: NextPage = () => {
                 <h2>DAO Description</h2>
             </FrostedGlassBox>
                 <div className="flex justify-center items-center h-full">
-                    <Button loading={false}>Create New subDAO</Button>
+                    <Button loading={false}>Create subDAO</Button>
                 </div>
           </div>
         </>
