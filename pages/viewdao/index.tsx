@@ -2,6 +2,7 @@ import React from "react";
 import { useState } from "react";
 import type { NextPage } from "next";
 import { useAccount, useBalance } from "wagmi";
+import { useRouter } from "next/router";
 import { Button, Layout, Loader, WalletOptionsModal} from "../../components";
 import FrostedGlassBox from "../../components/FrostedCard";
 
@@ -15,9 +16,14 @@ const Home: NextPage = () => {
 
   const loading = (accountLoading || balanceLoading) && !balanceData;
 
+  const router = useRouter();
+  
   const renderContent = () => {
     if (loading) return <Loader size={8} />;
 
+  const handleCreateDAOClick = () => {
+    router.push("./createdao"); // Replace with the actual URL of the create-dao page
+  };
     return (
         <>
           <h1 className="mb-6 mt-8 text-4xl font-bold">Here are all your DAOs</h1>
@@ -28,7 +34,7 @@ const Home: NextPage = () => {
                 <h2>DAO Description</h2>
             </FrostedGlassBox>
                 <div className="flex justify-center items-center h-full">
-                    <Button loading={false}>Create New DAO</Button>
+                    <Button loading={false} onClick={handleCreateDAOClick}>Create New DAO</Button>
                 </div>
           </div>
 
