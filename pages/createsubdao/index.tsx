@@ -1,46 +1,40 @@
 import React, { useState } from 'react';
-import type { NextPage } from "next";
-import { useAccount, useBalance } from "wagmi";
-import { Button, Layout, Loader, WalletOptionsModal } from "../../components";
+import { useAccount } from 'wagmi';
 import { useRouter } from "next/router";
-import Web3 from 'web3';
 
 const SubDAOCreationDashboard = () => {
     const [hatId, setHatId] = useState<number>(0);
     const [newImageURI, setNewImageURI] = useState<string>('');
     const [wearer, setWearer] = useState<string>('');
 
-    const web3 = new Web3(Web3.givenProvider); // Connects to Metamask
-    const subDAOFactoryContractAddress = 'YOUR_CONTRACT_ADDRESS_HERE';
-    const subDAOFactoryABI = []; // Your ABI here
+    const account = useAccount();
+    const router = useRouter();
 
-    const contract = new web3.eth.Contract(subDAOFactoryABI, subDAOFactoryContractAddress);
+    // Placeholder function to test if everything is working
+    const testFunction = () => {
+        if (account) {
+            console.log('Account is:', account);
+            alert('Everything seems to be working fine!');
+        } else {
+            console.error('No account detected.');
+            alert('No account detected. Please connect your wallet.');
+        }
+    };
+
+    // TODO: Implement the contract interactions using wagmi
+    // For now, we'll just have placeholder functions
 
     const handleSubChangeHatImageURI = async () => {
-        try {
-            const accounts = await web3.eth.getAccounts();
-            const senderAddress = accounts[0];
-
-            await contract.methods.subChangeHatImageURI(hatId, newImageURI).send({ from: senderAddress });
-            console.log('Hat Image URI changed successfully');
-        } catch (error) {
-            console.error('Error changing Hat Image URI:', error);
-        }
+        // TODO: Implement the contract call to subChangeHatImageURI
+        console.log('subChangeHatImageURI called with:', hatId, newImageURI);
     };
 
     const handleSubMintHat = async () => {
-        try {
-            const accounts = await web3.eth.getAccounts();
-            const senderAddress = accounts[0];
-
-            await contract.methods.subMintHat(hatId, wearer).send({ from: senderAddress });
-            console.log('Hat minted successfully');
-        } catch (error) {
-            console.error('Error minting hat:', error);
-        }
+        // TODO: Implement the contract call to subMintHat
+        console.log('subMintHat called with:', hatId, wearer);
     };
 
-    // Add more handlers for other functions as needed...
+    // ... Add more handlers for other functions ...
 
     return (
         <div>
@@ -63,8 +57,9 @@ const SubDAOCreationDashboard = () => {
                 <button onClick={handleSubMintHat}>Mint Hat</button>
             </div>
 
-            {/* Add more UI components for other functions... */}
+            <button onClick={testFunction}>Test Connection</button>
 
+            {/* Add more UI components for other functions... */}
         </div>
     );
 };
