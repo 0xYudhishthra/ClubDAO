@@ -38,6 +38,8 @@ const Home: NextPage = () => {
             <FrostedGlassBox className="mx-10">
                 <h1 className="mb-8 text-3xl font-bold">DAO NAME</h1>
                 <h2>DAO Description</h2>
+                <p>Parent DAO: </p>
+                <p>Put text here</p>
             </FrostedGlassBox>
                 <div className="flex justify-center items-center h-full">
                     <Button loading={false}>Create subDAO</Button>
