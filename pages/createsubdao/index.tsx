@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useAccount } from 'wagmi';
 import { useRouter } from "next/router";
+import FrostedGlassBox from '../../components/FrostedCard';
 
 const SubDAOCreationDashboard = () => {
     const [hatId, setHatId] = useState<number>(0);
@@ -37,30 +38,32 @@ const SubDAOCreationDashboard = () => {
     // ... Add more handlers for other functions ...
 
     return (
-        <div>
-            <h2>SubDAO Creation Dashboard</h2>
-
+        <FrostedGlassBox className={"h-auto"}>
             <div>
-                <label>Hat ID:</label>
-                <input type="number" value={hatId} onChange={(e) => setHatId(Number(e.target.value))} />
+                <h2>SubDAO Creation Dashboard</h2>
+
+                <div>
+                    <label>Hat ID:</label>
+                    <input type="number" value={hatId} onChange={(e) => setHatId(Number(e.target.value))} />
+                </div>
+
+                <div>
+                    <label>New Image URI:</label>
+                    <input type="text" value={newImageURI} onChange={(e) => setNewImageURI(e.target.value)} />
+                    <button onClick={handleSubChangeHatImageURI}>Change Hat Image URI</button>
+                </div>
+
+                <div>
+                    <label>Wearer Address:</label>
+                    <input type="text" value={wearer} onChange={(e) => setWearer(e.target.value)} />
+                    <button onClick={handleSubMintHat}>Mint Hat</button>
+                </div>
+
+                <button onClick={testFunction}>Test Connection</button>
+
+                {/* Add more UI components for other functions... */}
             </div>
-
-            <div>
-                <label>New Image URI:</label>
-                <input type="text" value={newImageURI} onChange={(e) => setNewImageURI(e.target.value)} />
-                <button onClick={handleSubChangeHatImageURI}>Change Hat Image URI</button>
-            </div>
-
-            <div>
-                <label>Wearer Address:</label>
-                <input type="text" value={wearer} onChange={(e) => setWearer(e.target.value)} />
-                <button onClick={handleSubMintHat}>Mint Hat</button>
-            </div>
-
-            <button onClick={testFunction}>Test Connection</button>
-
-            {/* Add more UI components for other functions... */}
-        </div>
+        </FrostedGlassBox>
     );
 };
 
