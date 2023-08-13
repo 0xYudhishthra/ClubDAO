@@ -24,7 +24,6 @@ export default function HackathonBountiesDashboard() {
 
     return (
         <>
-        {/* <WalletOptionsModal open={showWalletOptions} setOpen={setShowWalletOptions}/> */}
         <Layout showWalletOptions={showWalletOptions} setShowWalletOptions={setShowWalletOptions} children={undefined} />
         <div className="hackathon-bounties-dashboard flex flex-col items-center gap-20 p-20">
             <h1 className="text-3xl font-bold mt-20">Hackathon Bounties</h1>
