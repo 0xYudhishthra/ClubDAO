@@ -1,55 +1,38 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Link from 'next/link';
-// import { useContract } from 'wagmi';
-
-// Assuming you have the ABI and contract address for your SubDAO
-// const subDAOFactoryABI = [...]; // Your ABI here
-// const subDAOFactoryContractAddress = 'YOUR_CONTRACT_ADDRESS_HERE';
+import { useAccount, useBalance } from 'wagmi';
+import { Button, Layout, Loader, WalletOptionsModal } from "../../components";
 
 export default function SubDAODashboard() {
-    // Commented out for now as you mentioned
-    // const contract = useContract(subDAOFactoryABI, subDAOFactoryContractAddress);
+    const [showWalletOptions, setShowWalletOptions] = useState(false);
+    const [{ data: accountData, loading: accountLoading }] = useAccount();
+    const [{ data: balanceData, loading: balanceLoading }] = useBalance({
+        addressOrName: accountData?.address,
+        watch: true,
+    });
 
     return (
-        <div className="dashboard">
-            <h1>SubDAO Dashboard</h1>
+        <>
+        <Layout showWalletOptions={showWalletOptions} setShowWalletOptions={setShowWalletOptions}>
+            <div className="dashboard">
+                <h1 className="text-3xl font-bold mt-20">SubDAO Dashboard</h1>
 
-            <div className="buttons">
-                <Link href="/path-to-your-bounties-page">
-                    <button>
-                        Bounties
-                    </button>
-                </Link>
-                <Link href="/path-to-your-network-page">
-                    <button>
-                        Network
-                    </button>
-                </Link>
-                <Link href="/path-to-your-forum-page">
-                    <button>
-                        Forum
-                    </button>
-                </Link>
-                <Link href="/path-to-your-hats-info-page">
-                    <button>
-                        Hats Info
-                    </button>
-                </Link>
+                <div className="buttons flex gap-4 mt-8">
+                    <Link href="/path-to-your-bounties-page">
+                        <button className="btn">Bounties</button>
+                    </Link>
+                    <Link href="/path-to-your-network-page">
+                        <button className="btn">Network</button>
+                    </Link>
+                    <Link href="/path-to-your-forum-page">
+                        <button className="btn">Forum</button>
+                    </Link>
+                    <Link href="/path-to-your-hats-info-page">
+                        <button className="btn">Hats Info</button>
+                    </Link>
+                </div>
             </div>
-
-            <style jsx>{`
-                .dashboard {
-                    display: flex;
-                    flex-direction: column;
-                    align-items: center;
-                    gap: 20px;
-                }
-
-                .buttons {
-                    display: flex;
-                    gap: 10px;
-                }
-            `}</style>
-        </div>
+        </Layout>
+        </>
     );
 }

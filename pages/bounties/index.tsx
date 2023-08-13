@@ -31,7 +31,7 @@ export default function HackathonBountiesDashboard() {
             <div className="bounties-list inline-flex place-items-center">
                 {hackathonBounties.map(bounty => (
                     // <div key={bounty.id} className="bounty-item p-4 border rounded-md border-gray-300">
-                    <FrostedGlassBox key={bounty.id} className="bounty-item p-4 border rounded-md ">
+                    <FrostedGlassBox key={bounty.id} className="bounty-item p-4 border rounded-md h-50 ">
                         <h2 className="text-lg font-semibold">{bounty.title}</h2>
                         <p>Sponsored by: {bounty.sponsor}</p>
                         <p>Reward: {bounty.reward}</p>
