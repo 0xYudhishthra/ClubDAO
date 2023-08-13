@@ -2,22 +2,20 @@ import React from 'react';
 import Link from 'next/link';
 
 export default function HackathonBountiesDashboard() {
-    // Sample data for hackathon bounties. You can replace this with actual data fetched from your backend or contract.
     const hackathonBounties = [
         { id: 1, title: 'Decentralized Voting System', sponsor: 'Ethereum Foundation', reward: '10 ETH', status: 'Open' },
         { id: 2, title: 'Cross-chain Asset Bridge', sponsor: 'Polygon', reward: '8 ETH', status: 'In Progress' },
         { id: 3, title: 'NFT Marketplace', sponsor: 'OpenSea', reward: '15 ETH', status: 'Completed' },
-        // ... add more bounties as needed
     ];
 
     return (
-        <div className="hackathon-bounties-dashboard">
-            <h1>Hackathon Bounties</h1>
+        <div className="hackathon-bounties-dashboard flex flex-col items-center gap-20 p-20">
+            <h1 className="text-2xl font-bold">Hackathon Bounties</h1>
 
-            <div className="bounties-list">
+            <div className="bounties-list w-full max-w-md">
                 {hackathonBounties.map(bounty => (
-                    <div key={bounty.id} className="bounty-item">
-                        <h2>{bounty.title}</h2>
+                    <div key={bounty.id} className="bounty-item p-4 border rounded-md border-gray-300">
+                        <h2 className="text-lg font-semibold">{bounty.title}</h2>
                         <p>Sponsored by: {bounty.sponsor}</p>
                         <p>Reward: {bounty.reward}</p>
                         <p>Status: {bounty.status}</p>
@@ -26,38 +24,10 @@ export default function HackathonBountiesDashboard() {
             </div>
 
             <Link href="/subdao-dashboard">
-                <button className="back-button">
+                <button className="back-button mt-4 bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded">
                     Back to SubDAO Dashboard
                 </button>
             </Link>
-
-            <style jsx>{`
-                .hackathon-bounties-dashboard {
-                    display: flex;
-                    flex-direction: column;
-                    align-items: center;
-                    gap: 20px;
-                    padding: 20px;
-                }
-
-                .bounties-list {
-                    display: flex;
-                    flex-direction: column;
-                    gap: 15px;
-                    width: 100%;
-                    max-width: 600px;
-                }
-
-                .bounty-item {
-                    padding: 15px;
-                    border: 1px solid #ccc;
-                    border-radius: 8px;
-                }
-
-                .back-button {
-                    margin-top: 20px;
-                }
-            `}</style>
         </div>
     );
 }
