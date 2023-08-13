@@ -5,8 +5,8 @@
 html,
 body {
   width: 100%;
-  height: 100%;
-  overflow: hidden;
+  /* height: 100%; */
+  /* overflow: hidden; */
   padding: 0;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
@@ -148,7 +148,7 @@ body::after {
   animation: animateAfter 7s cubic-bezier(0.47, 0, 0.745, 0.715) infinite;
 }
 
-/* create dao button */
+/* button */
 .cards-container {
   display: flex;
 }
@@ -185,3 +185,111 @@ body::after {
   text-align: left; /* Removed unnecessary quotes around "left" */
 }
 
+/* Create dao page card*/
+
+.create{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 800px;
+  overflow: auto;
+  background-color: rgba(255, 255, 255, 0.512);
+  border-radius: 15px;
+  padding: 20px;
+  box-sizing: border-box; /* Include padding in width calculation */
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
+  margin-top: 90px;
+}
+
+.testnet{
+  font-size: 30px;
+  color: #000000;
+  text-align: left;
+}
+
+.select-blockchain-card{
+  height: 350px;
+}
+
+/* select blockchain list */
+.list-choice{
+  width:300px;
+  margin:1em auto;
+  position: relative;
+  cursor: pointer;  
+}
+.list-choice input[type="radio"]{
+  position:absolute;
+  left:-9999px;
+}
+
+.list-choice-title {
+width: 100%;
+display: block;
+background: #bdbcbc;
+text-align: center;
+padding: 0.55em 1em;
+box-sizing: border-box;
+color: #000000;
+text-shadow: 0 1px 0 #CACACA;
+border-radius: 0.2em;
+margin-bottom: 160px;
+}
+.list-choice:hover .list-choice-title {
+border-radius:0.2em 0.2em 0 0;
+}
+.list-choice-objects label:nth-last-of-type(1) span{
+  border-radius:0 0 0.2em 0.2em;
+}
+.list-choice input[type="radio"] + span {
+color: #000000;
+background: #d6d6d6;
+padding: 0.55em 1em;
+display: block;
+text-align: center;
+box-sizing: border-box;
+cursor: pointer;
+width: 100%;
+}
+.list-choice-objects {
+position: absolute;
+top: 0;
+padding-top: 2.1em;
+box-sizing: border-box;
+width: 100%;
+overflow: hidden;
+max-height: 0;
+transition: all 250ms ease;
+}
+.list-choice:hover .list-choice-objects  input[type="radio"] + span {
+position: relative;
+top: 0;
+transition: all 250ms ease-in-out;
+}
+.list-choice:hover input[type="radio"] + span:hover {
+background:#BBB;
+}
+.list-choice:hover input[type="radio"]:checked + span:hover {
+background:#BBB;
+}
+.list-choice input[type="radio"]:checked + span {
+background: #BBB;
+position: absolute;
+top: 0em;
+border-radius: 0.2em;
+}
+.list-choice:hover input[type="radio"]:checked + span {
+border-radius: 0;
+}
+.list-choice:hover .list-choice-objects label:nth-last-of-type(1) input[type="radio"]:checked + span{
+  border-radius:0 0 0.2em 0.2em;
+}
+
+.list-choice:hover .list-choice-objects {
+max-height: 540px;
+}
+
+/* describe dao  card*/
+.describe-dao-card{
+  height: 500px;
+}

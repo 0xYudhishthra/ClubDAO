@@ -85,7 +85,7 @@ export default function Layout(props: Props) {
         setOpen={setShowWalletOptions}
       />
 
-      <div className="absolute w-screen bg-white bg-opacity-0">
+      <div className=" fixed absolute w-screen bg-white bg-opacity-0">
         <div className="flex items-center justify-between p-4">
           <div className="flex items-center">
             <h4 className="text-2xl font-bold text-white cursor-default">
