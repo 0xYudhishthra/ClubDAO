@@ -13,7 +13,7 @@ export default function Button(props: Props) {
   return (
     <button
       type="button"
-      className={`flex items-center justify-center h-14 p-3 font-semibold border border-black hover:border-transparent hover:text-black hover:bg-red active:bg-gray-200 rounded-md ${
+      className={`flex items-center justify-center h-14 p-3 mx-4 font-semibold border border-black hover:border-transparent hover:text-black hover:bg-red active:bg-gray-200 rounded-md ${
         width && `w-${width}`
       } ${loading ? "cursor-not-allowed opacity-50" : ""}`}
       disabled={loading}
