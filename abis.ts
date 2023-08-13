@@ -4404,8 +4404,206 @@ export const subDaoPostNftABI = [
 ] as const;
 
 export const subDaoPostNftAddress = {
-  420: "0x938cF99c416B0F2f539805a1E4bdAfe14b7080B1", //optimismGoerli
-  84531: "0x938cF99c416B0F2f539805a1E4bdAfe14b7080B1", // baseGoerli
-  999: "0xE2d8b231dB562a6260b0F46a28E4cABC5c861CA7", //zoraGoerli
+  420: "0x3fd65916afcBB21d7Ac32bB5205b5f16193CB8c9", //optimismGoerli
+  84531: "0x3fd65916afcBB21d7Ac32bB5205b5f16193CB8c9", // baseGoerli
+  999: "0x3fd65916afcBB21d7Ac32bB5205b5f16193CB8c9", //zoraGoerli
   919: "0x3fd65916afcBB21d7Ac32bB5205b5f16193CB8c9", //modeSepolia
+} as const;
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// SubDAO Proposal
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+export const subDaoProposalABI = [
+  {
+    anonymous: false,
+    inputs: [
+      {
+        indexed: false,
+        internalType: "uint256",
+        name: "proposalId",
+        type: "uint256",
+      },
+      {
+        indexed: false,
+        internalType: "string",
+        name: "title",
+        type: "string",
+      },
+      {
+        indexed: false,
+        internalType: "uint256",
+        name: "reward",
+        type: "uint256",
+      },
+    ],
+    name: "ProposalAdded",
+    type: "event",
+  },
+  {
+    anonymous: false,
+    inputs: [
+      {
+        indexed: false,
+        internalType: "uint256",
+        name: "proposalId",
+        type: "uint256",
+      },
+      {
+        indexed: false,
+        internalType: "address",
+        name: "voter",
+        type: "address",
+      },
+      {
+        indexed: false,
+        internalType: "bool",
+        name: "vote",
+        type: "bool",
+      },
+    ],
+    name: "Voted",
+    type: "event",
+  },
+  {
+    inputs: [
+      {
+        internalType: "string",
+        name: "_title",
+        type: "string",
+      },
+      {
+        internalType: "string",
+        name: "_description",
+        type: "string",
+      },
+      {
+        internalType: "uint256",
+        name: "_reward",
+        type: "uint256",
+      },
+    ],
+    name: "addProposal",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function",
+  },
+  {
+    inputs: [
+      {
+        internalType: "uint256",
+        name: "_proposalId",
+        type: "uint256",
+      },
+    ],
+    name: "executeProposal",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function",
+  },
+  {
+    inputs: [],
+    name: "listAllProposals",
+    outputs: [
+      {
+        internalType: "uint256[]",
+        name: "",
+        type: "uint256[]",
+      },
+    ],
+    stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [],
+    name: "proposalCount",
+    outputs: [
+      {
+        internalType: "uint256",
+        name: "",
+        type: "uint256",
+      },
+    ],
+    stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [
+      {
+        internalType: "uint256",
+        name: "",
+        type: "uint256",
+      },
+    ],
+    name: "proposals",
+    outputs: [
+      {
+        internalType: "string",
+        name: "title",
+        type: "string",
+      },
+      {
+        internalType: "string",
+        name: "description",
+        type: "string",
+      },
+      {
+        internalType: "uint256",
+        name: "reward",
+        type: "uint256",
+      },
+      {
+        internalType: "address",
+        name: "proposer",
+        type: "address",
+      },
+      {
+        internalType: "uint256",
+        name: "forVotes",
+        type: "uint256",
+      },
+      {
+        internalType: "uint256",
+        name: "againstVotes",
+        type: "uint256",
+      },
+      {
+        internalType: "uint256",
+        name: "endTime",
+        type: "uint256",
+      },
+      {
+        internalType: "bool",
+        name: "executed",
+        type: "bool",
+      },
+    ],
+    stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [
+      {
+        internalType: "uint256",
+        name: "_proposalId",
+        type: "uint256",
+      },
+      {
+        internalType: "bool",
+        name: "_vote",
+        type: "bool",
+      },
+    ],
+    name: "vote",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function",
+  },
+] as const;
+
+export const subDaoProposalAddress = {
+  420: "0xC09d59db30f5e9E268967FB15ca758B023b86922", //optimismGoerli
+  84531: "0xC09d59db30f5e9E268967FB15ca758B023b86922", // baseGoerli
+  999: "0xC09d59db30f5e9E268967FB15ca758B023b86922", //zoraGoerli
+  919: "0xC09d59db30f5e9E268967FB15ca758B023b86922", //modeSepolia
 } as const;
