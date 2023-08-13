@@ -11,6 +11,7 @@ const SubDAOCreationDashboard = () => {
     const account = useAccount();
     const router = useRouter();
 
+
     // Placeholder function to test if everything is working
     const testFunction = () => {
         if (account) {

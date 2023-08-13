@@ -24,6 +24,9 @@ const Home: NextPage = () => {
   const handleCreateDAOClick = () => {
     router.push("./createdao"); // Replace with the actual URL of the create-dao page
   };
+  const handleSubdaoClick = () => {
+    router.push("./createsubdao"); // Replace with the actual URL of the create-sub-dao page
+  };
     return (
         <>
           <h1 className="mb-6 mt-8 text-4xl font-bold">Here are all your DAOs</h1>
@@ -48,7 +51,7 @@ const Home: NextPage = () => {
                 <p>Put text here</p>
             </FrostedGlassBox>
                 <div className="flex justify-center items-center h-full">
-                    <Button loading={false}>Create subDAO</Button>
+                    <Button loading={false} onclick={handleSubdaoClick}>Create subDAO</Button>
                 </div>
           </div>
         </>
